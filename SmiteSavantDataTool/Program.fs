@@ -53,10 +53,7 @@ let main argv =
 
     let session_id = json.GetProperty("session_id")
 
-    let godRequestUrl = urlPrefix + "getgodsjson/" + signatureGods.devid + "/" + buildSignature signatureGods + "/" + session_id.ToString() + "/"+ getDateTime + "/1"
-
-    printfn "url: %s" godRequestUrl
-
+    let godRequestUrl = urlPrefix + "getgodsjson/" + signatureGods.devid + "/" + buildSignature signatureGods + "/" + session_id.AsString() + "/"+ getDateTime + "/1"
 
     let gods = getAsync httpClient godRequestUrl |> Async.RunSynchronously
 
